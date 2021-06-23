@@ -2,19 +2,24 @@
 
 namespace App\Controller;
 
+//use W1020\HTML\Pagination;
 use W1020\Table as ORMTable;
+
+
 use App\View\View;
 
 class Table
 {
     protected $model;
     protected $view;
+//    protected $pagination;
 
     public function __construct()
     {
         $config = include __DIR__ . "/../../config.php";
         $this->model = new ORMTable($config);
         $this->view = new View();
+//        $this->pagination = new Pagination();
     }
 
     public function actionShow()
@@ -30,6 +35,11 @@ class Table
 
         $this->view->setData(['table' => $this->model->get(), 'comments' => $headers])->setTemplate("Table/show")->view();
     }
+
+//    public function pagin()
+//    {
+//        $this->pagination->setPageCount($this->model->pageCount())->setActivePage($_GET['page'])->html();
+//    }
 
     public function actionDel()
     {
