@@ -22,7 +22,7 @@ class Table
 
     public function actionShow()
     {
-        print_r($this->model->columnComments());
+//        print_r($this->model->columnComments());
 
         $headers['id'] = "№";
         foreach ($this->model->columnComments() as $key => $comment) {

@@ -8,7 +8,7 @@ class Pagination
 {
     protected int $pageCount;
     protected int $activePage;
-    protected string $urlPrefix = "?page=";
+    protected string $urlPrefix = "&page=";
 
     /**
      * @param int $pageCount
@@ -48,20 +48,20 @@ class Pagination
 <nav aria-label="...">
   <ul class="pagination">
     <li class="page-item">
-      <a class="page-link" href="$this->urlPrefix$previous">&laquo;</a>
+      <a class="page-link" href="?type=Table&action=show$this->urlPrefix$previous">&laquo;</a>
     </li>
 EOT;
 
         for ($i = 1; $i <= $this->pageCount; $i++) {
             $html .= "<li class='page-item" . ($i == $this->activePage ? " active" : "") .
-                "'><a class='page-link' href='$this->urlPrefix$i'>$i</a></li>";
+                "'><a class='page-link' href='?type=Table&action=show$this->urlPrefix$i'>$i</a></li>";
 
         }
 
         $next = min($this->pageCount, $this->activePage + 1);
         $html .= <<<EOT
     <li class="page-item">
-      <a class="page-link" href="$this->urlPrefix$next">&raquo;</a>
+      <a class="page-link" href="?type=Table&action=show$this->urlPrefix$next">&raquo;</a>
     </li>
   </ul>
 </nav>
