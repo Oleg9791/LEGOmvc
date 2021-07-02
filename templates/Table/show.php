@@ -3,6 +3,7 @@
 use W1020\HTML\Table;
 use W1020\HTML\Pagination;
 use W1020\Table as Tab;
+
 $config = include "../config.php";
 $tab = new Tab($config);
 $tab->setPageSize(3);
